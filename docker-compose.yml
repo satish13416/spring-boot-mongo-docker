@@ -14,16 +14,7 @@ services:
     depends_on:
       - mongo
     networks:
-    - springappnetwork  
-    deploy:  # This will be considered only in docker swarm.
-      replicas: 2
-      update_config:
-        parallelism: 1
-        delay: 20s
-      restart_policy:
-        condition: on-failure
-        delay: 10s
-        max_attempts: 5
+    - springappnetwork 
 
   mongo:
     image: mongo
@@ -38,8 +29,7 @@ services:
     
 volumes:
   mongodb:
-    external: true
     
 networks:
   springappnetwork:
-    external: true
+ 
